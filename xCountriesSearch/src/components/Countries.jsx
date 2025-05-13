@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
-import Styles from "./Countries.module.css";
+// import Styles from "./Countries.module.css";
+import "./Countries.css"
 
 const Countries = () => {
   const [countries, setCountries] = useState([]);
@@ -15,20 +16,20 @@ const Countries = () => {
   const filteredCountries = countries.filter((country) =>
     country.common.toLowerCase().includes(searchTerm.toLowerCase())
   );
-  console.log(filteredCountries);
+  // console.log(filteredCountries);
   return (
-    <div className={Styles.container}>
+    <div className="container">
       <input
         type="text"
         placeholder="Search for countries..."
-        className={Styles.searchbar}
+        className="searchbar"
         value={searchTerm}
         onChange={(e) => setSearchTerm(e.target.value)}
       />
 
-      <div className={Styles.grid}>
+      <div className="grid">
         {filteredCountries.map((country) => (
-          <div key={country.common} className={Styles.countryCard}>
+          <div key={country.common} className="countryCard">
             <img src={country.png} alt={`Flag of ${country.common}`} />
             <p>{country.common}</p>
           </div>
